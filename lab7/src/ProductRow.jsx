@@ -1,3 +1,4 @@
+import React from 'react';
 // TODO 4:
 // This component re-renders for EVERY product whenever the parent renders.
 // To optimize this, wrap ProductRow with `React.memo` so it only re-renders
@@ -7,7 +8,8 @@
 // clicking the favorite button should ONLY re-render the changed row,
 // not all of them.
 
-function ProductRow({ product, onToggleFavorite }) {
+const ProductRow = React.memo(
+  function ProductRow({ product, onToggleFavorite }) {
     console.log("Row render:", product.name);
   
     return (
@@ -23,6 +25,7 @@ function ProductRow({ product, onToggleFavorite }) {
       </tr>
     );
   }
+)
   
   export default ProductRow;
   
